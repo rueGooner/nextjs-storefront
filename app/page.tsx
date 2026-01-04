@@ -30,6 +30,33 @@ export default async function IndexPage() {
           </li>
         ))}
       </ul>
+      {/* Immplement the grid here */}
+      <div className="grid grid-cols-2 gap-3">
+        {products.slice(0, 5).map((product, index) => {
+          // Map indices to grid positions:
+          // 0: row 1, col 1
+          // 1: row 2, col 1
+          // 2: row 1, col 2
+          // 3: row 2, col 2
+          // 4: row 3, col 2
+          const gridClasses = [
+            "row-start-1 col-start-1", // index 0
+            "row-start-2 col-start-1", // index 1
+            "row-start-1 col-start-2", // index 2
+            "row-start-2 col-start-2", // index 3
+            "row-start-3 col-start-2", // index 4
+          ];
+          
+          return (
+            <div
+              key={product._id}
+              className={`p-4 ${gridClasses[index]} border border-gray-300`}
+            >
+              <p>{product.title}</p>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }
