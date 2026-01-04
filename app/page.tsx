@@ -11,7 +11,7 @@ const PRODUCTS_QUERY = `*[
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch<SanityDocument[]>(
+  const products = await client.fetch<SanityDocument[]>(
     PRODUCTS_QUERY,
     {},
     options
